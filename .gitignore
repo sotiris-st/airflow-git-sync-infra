@@ -1,0 +1,7 @@
+# Runtime Airflow directories (created at startup) 
+dags/
+logs/
+plugins/
+
+# Local environment configuration 
+.env
