@@ -121,7 +121,7 @@ services:
     command: webserver
     restart: always
     ports:
-      - "8080:8080"
+      - "8085:8080"
     depends_on:
       airflow-init:
         condition: service_completed_successfully
@@ -167,14 +167,17 @@ services:
     user: "50000:0"
     restart: always
     environment:
-      
-      GIT_SYNC_REPO: ${GIT_SYNC_REPO} # Externalized so users can plug in their own DAG repository
+      # Externalized so users can plug in their own DAG repository
+      GIT_SYNC_REPO: ${GIT_SYNC_REPO}
       GIT_SYNC_BRANCH: main
       GIT_SYNC_ROOT: /git
       GIT_SYNC_DEST: repo
       GIT_SYNC_WAIT: "10"
       GIT_SYNC_ONE_TIME: "false"
       GIT_SYNC_ADD_ONLY: "false"
+      # Optional: enable access to private repositories
+      #GIT_SYNC_USERNAME: ${GIT_SYNC_USERNAME}
+      #GIT_SYNC_PASSWORD: ${GIT_SYNC_PASSWORD}
     volumes:
       - ./dags:/git
 
