@@ -1,7 +1,11 @@
 # airflow-git-sync-infra
-Apache Airflow Docker setup with Git-synced DAGs (no DAGs stored in this repo)
 
-# Airflow with Git-synced DAGs (Docker)
+Apache Airflow Docker setup with Git-synced DAGs  
+(no DAGs stored in this repository)
+
+---
+
+## Overview
 
 This repository demonstrates a Docker-based Apache Airflow setup where
 **DAGs are delivered from a Git repository at runtime** using `git-sync`.
@@ -15,14 +19,14 @@ and the separation of Airflow infrastructure from DAG code.
 
 This repository focuses on **infrastructure and integration**, not DAG logic.
 
-**Included**
+### Included
 - Airflow Docker Compose setup
 - `git-sync` integration for DAG delivery
 - Internal PostgreSQL metadata database
 - Redis broker (CeleryExecutor)
 - Custom Airflow image via Dockerfile
 
-**Intentionally excluded**
+### Intentionally excluded
 - DAG files
 - Runtime logs
 - Plugins
@@ -52,3 +56,24 @@ Create a `.env` file in the same directory as `docker-compose.yml`:
 
 ```env
 GIT_SYNC_REPO=https://github.com/<your-user>/<your-dag-repo>.git
+```
+
+This file is intentionally not committed.
+
+---
+
+### 2. Start Airflow
+
+```bash
+docker compose up -d --build
+```
+
+---
+
+### 3. Access Airflow
+
+- **URL:** http://localhost:8085
+- **Username:** airflow
+- **Password:** airflow
+
+After startup, DAGs from the configured Git repository will appear automatically.
