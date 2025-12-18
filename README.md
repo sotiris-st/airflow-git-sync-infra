@@ -56,9 +56,9 @@ Create a `.env` file in the same directory as `docker-compose.yml`:
 
 ```env
 GIT_SYNC_REPO=https://github.com/<your-user>/<your-dag-repo>.git
-# Optional: enable access to private repositories
-GIT_SYNC_USERNAME=x-access-token
-GIT_SYNC_PASSWORD=<YOUR_TOKEN>
+# Optional: To enable access to private repositories uncomment the two following lines
+#GIT_SYNC_USERNAME=x-access-token
+#GIT_SYNC_PASSWORD=<YOUR_TOKEN>
 
 ```
 
