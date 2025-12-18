@@ -72,7 +72,7 @@ docker compose up -d --build
 
 ### 3. Access Airflow
 
-- **URL:** http://localhost:8085
+- **URL:** http://localhost:8080
 - **Username:** airflow
 - **Password:** airflow
 
